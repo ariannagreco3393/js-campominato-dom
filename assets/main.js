@@ -56,7 +56,7 @@ function generateGrid(selector, tag_name, class_name, limit, cols_number) {
 
 
 
-// funzione colore azzurro
+// funzione colore 
 function color(){
 //selezionare tutte le celle
    const cells = document.querySelectorAll('.cell');
