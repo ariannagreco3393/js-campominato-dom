@@ -30,7 +30,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
     }
 
-
+    color_blu()
 
 });
 
@@ -135,26 +135,39 @@ function randomNumbers (number1, number2) {
     return bombe;       
 }
 
-//UTENTE CLICCA SU CELLA
-//se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba
+
 let bombe = randomNumbers(1,100)
 //console.log(bombe); 
 
-let i = 0
-while (i < bombe.length) {
-    const bombaNumber = bombe[i]
-    console.log(bombaNumber);
-    i++
+//UTENTE CLICCA SU CELLA
 
-    if (bombe.includes(bombaNumber) == true) {
-//la cella si colora di rosso e la partita termina,
-        color_red()
-        
-    } else {
-//altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
-        color_blu()
-    }
-}
+function userNumber() {
+    //selezionare tutte le celle
+       const cells = document.querySelectorAll('.cell');
+       //console.log(cells);
+    
+    //ciclare gli elementi della dom
+       for (let i = 0; i < cells.length; i++) {
+           const cellElement = cells[i];
+    
+    // event listener
+        cellElement.addEventListener('click', function() {
+
+            if (cellElement == randomNumbers(1,100)) {
+                color_red()
+            } else {
+                
+            }
+            
+    
+        });
+           
+       }
+    };
+
+
+//se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba
+
 
 
 
