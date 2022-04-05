@@ -18,7 +18,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
     if (level == 'facile') {
 
-        generateGrid('.cells', 'div', 'cell', 100, 10) 
+        generateGrid('.cells', 'div', 'cell', 100, 10)
 
     } else if (level == 'medio') {
 
@@ -30,7 +30,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
     }
 
-    color_blu()
+
 
 });
 
@@ -78,6 +78,28 @@ function color_blu() {
 };
 
 
+// funzione colore rosso
+function color_red() {
+    //selezionare tutte le celle
+       const cells = document.querySelectorAll('.cell');
+       console.log(cells);
+    
+    //ciclare gli elementi della dom
+       for (let i = 0; i < cells.length; i++) {
+           const cellElement = cells[i];
+    
+    // event listener
+        cellElement.addEventListener('click', function() {
+            //console.log(this);
+            //colorare la cella
+            this.style.backgroundColor = 'red'
+    
+        });
+           
+       }
+    };
+
+
 /* 
 Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe
 I numeri nella lista delle bombe non possono essere duplicati.
@@ -105,32 +127,34 @@ function getRndInteger(min, max) {
 function randomNumbers (number1, number2) {
     const bombe = [];
 
-    for (let i = 0; i < 17; i++) {
+    for (let i = 1; i <= 16; i++) {
         const randomNumber = getRndInteger(number1, number2)
-
-        if (!bombe.includes(randomNumber)) {
-            bombe.push(randomNumber)
-        }
+        bombe.push(randomNumber)  
     }
     //console.log(bombe);
     return bombe;       
 }
 
-let bombe = randomNumbers()
-console.log(bombe);
-
 //UTENTE CLICCA SU CELLA
 //se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba
+let bombe = randomNumbers(1,100)
+//console.log(bombe); 
 
-for (let i = 0; i < bombe.length; i++) {
-    
+let i = 0
+while (i < bombe.length) {
+    const bombaNumber = bombe[i]
+    console.log(bombaNumber);
+    i++
+
+    if (bombe.includes(bombaNumber) == true) {
+        color_red()
+        
+    } else {
+        color_blu()
+    }
 }
-
 //la cella si colora di rosso e la partita termina,
 //altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
-
-
-
 
 
 
