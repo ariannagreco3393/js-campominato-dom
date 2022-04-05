@@ -147,14 +147,14 @@ while (i < bombe.length) {
     i++
 
     if (bombe.includes(bombaNumber) == true) {
+//la cella si colora di rosso e la partita termina,
         color_red()
         
     } else {
+//altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
         color_blu()
     }
 }
-//la cella si colora di rosso e la partita termina,
-//altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
 
 
 
