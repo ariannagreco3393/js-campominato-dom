@@ -26,3 +26,11 @@ header {
     justify-content: center;
 }
 
+.red {
+    background-color: red;
+}
+
+.blu {
+    background-color: cornflowerblue;
+}
+

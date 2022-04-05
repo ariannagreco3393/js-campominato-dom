@@ -57,6 +57,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
 function generateGrid(selector, tag_name, class_name, limit, cols_number) {
     const cellsElement = document.querySelector(selector)
     cellsElement.innerHTML = '';
+
     for (let i = 1; i <= limit; i++) {
         const cellItem = document.createElement(tag_name);
         cellItem.classList.add(class_name);
@@ -84,17 +85,17 @@ function color(){
 
 // event listener
     cellElement.addEventListener('click', function() {
-        console.log(bombe, cellElement);
-        console.log(this);
+        console.log(bombe);
+        //console.log(cellElement);
+        //console.log(cellElement.textContent);
 
-        if (bombe.includes(cellElement.innerText)) {
+        if (bombe.includes(Number(cellElement.textContent))) {
 
-            this.style.backgroundColor = 'red'
-
+            cellElement.classList.add('red');
 
         } else {
 
-            this.style.backgroundColor = 'cornflowerBlue'
+            cellElement.classList.add('blu');
 
         }
 
@@ -116,7 +117,10 @@ function randomNumbers (number1, number2) {
 
     for (let i = 1; i <= 16; i++) {
         const randomNumber = getRndInteger(number1, number2)
-        bombe.push(randomNumber)  
+
+        if (!bombe.includes(randomNumber)) {
+            bombe.push(randomNumber)     
+        }
     }
     //console.log(bombe);
     return bombe;       
