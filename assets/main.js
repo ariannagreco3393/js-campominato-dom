@@ -30,7 +30,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
     }
 
-    color()
+    color_blu()
 
 });
 
@@ -57,7 +57,7 @@ function generateGrid(selector, tag_name, class_name, limit, cols_number) {
 
 
 // funzione colore azzurro
-function color() {
+function color_blu() {
 //selezionare tutte le celle
    const cells = document.querySelectorAll('.cell');
    console.log(cells);
@@ -112,9 +112,20 @@ function randomNumbers (number1, number2) {
             bombe.push(randomNumber)
         }
     }
-    console.log(bombe);
+    //console.log(bombe);
     return bombe;       
 }
+
+//UTENTE CLICCA SU CELLA
+//se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba
+
+for (let i = 0; i < randomNumbers.length; i++) {
+    const bomba_calpestata = array[i];
+    
+}
+
+//la cella si colora di rosso e la partita termina,
+//altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
 
 
 
