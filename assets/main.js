@@ -30,7 +30,7 @@ document.querySelector('form').addEventListener('submit', function (event) {
 
     }
 
-    color_blu()
+    color()
 
 });
 
@@ -57,7 +57,7 @@ function generateGrid(selector, tag_name, class_name, limit, cols_number) {
 
 
 // funzione colore azzurro
-function color_blu() {
+function color(){
 //selezionare tutte le celle
    const cells = document.querySelectorAll('.cell');
    console.log(cells);
@@ -68,9 +68,18 @@ function color_blu() {
 
 // event listener
     cellElement.addEventListener('click', function() {
-        //console.log(this);
-        //colorare la cella
-        this.style.backgroundColor = 'cornflowerBlue'
+   
+
+        if (bombe.includes(cellElement.innerText)) {
+
+            this.style.backgroundColor = 'red'
+
+
+        } else {
+
+            this.style.backgroundColor = 'cornflowerBlue'
+
+        }
 
     });
        
@@ -78,26 +87,6 @@ function color_blu() {
 };
 
 
-// funzione colore rosso
-function color_red() {
-    //selezionare tutte le celle
-       const cells = document.querySelectorAll('.cell');
-       console.log(cells);
-    
-    //ciclare gli elementi della dom
-       for (let i = 0; i < cells.length; i++) {
-           const cellElement = cells[i];
-    
-    // event listener
-        cellElement.addEventListener('click', function() {
-            //console.log(this);
-            //colorare la cella
-            this.style.backgroundColor = 'red'
-    
-        });
-           
-       }
-    };
 
 
 /* 
@@ -139,34 +128,7 @@ function randomNumbers (number1, number2) {
 let bombe = randomNumbers(1,100)
 //console.log(bombe); 
 
-//UTENTE CLICCA SU CELLA
 
-function userNumber() {
-    //selezionare tutte le celle
-       const cells = document.querySelectorAll('.cell');
-       //console.log(cells);
-    
-    //ciclare gli elementi della dom
-       for (let i = 0; i < cells.length; i++) {
-           const cellElement = cells[i];
-    
-    // event listener
-        cellElement.addEventListener('click', function() {
-
-            if (cellElement == randomNumbers(1,100)) {
-                color_red()
-            } else {
-                
-            }
-            
-    
-        });
-           
-       }
-    };
-
-
-//se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba
 
 
 
