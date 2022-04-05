@@ -10,6 +10,24 @@ Quando l'utente clicca su ogni cella, la cella cliccata si colora di azzurro.
 */
 
 
+/* 
+Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe
+I numeri nella lista delle bombe non possono essere duplicati.
+
+In seguito l'utente clicca su una cella:
+-se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba
+-la cella si colora di rosso e la partita termina,
+-altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
+
+La partita termina quando:
+-il giocatore clicca su una bomba
+-o raggiunge il numero massimo possibile di numeri consentiti.
+
+Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che 
+l’utente ha cliccato su una cella che non era una bomba.
+*/
+
+
 document.querySelector('form').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -51,8 +69,6 @@ function generateGrid(selector, tag_name, class_name, limit, cols_number) {
     }
 };
 
-    
-
 
 
 
@@ -68,7 +84,8 @@ function color(){
 
 // event listener
     cellElement.addEventListener('click', function() {
-   
+        console.log(bombe, cellElement);
+        console.log(this);
 
         if (bombe.includes(cellElement.innerText)) {
 
@@ -86,25 +103,6 @@ function color(){
    }
 };
 
-
-
-
-/* 
-Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe
-I numeri nella lista delle bombe non possono essere duplicati.
-
-In seguito l'utente clicca su una cella:
--se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba
--la cella si colora di rosso e la partita termina,
--altrimenti la cella cliccata si colora di azzurro e l'utente può continuare a cliccare sulle altre celle.
-
-La partita termina quando:
--il giocatore clicca su una bomba
--o raggiunge il numero massimo possibile di numeri consentiti.
-
-Al termine della partita il software deve comunicare il punteggio, cioè il numero di volte che 
-l’utente ha cliccato su una cella che non era una bomba.
-*/
 
 // prendere la funzione che genera i numeri casuali
 function getRndInteger(min, max) {
