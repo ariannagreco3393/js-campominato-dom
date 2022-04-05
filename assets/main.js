@@ -116,11 +116,13 @@ function randomNumbers (number1, number2) {
     return bombe;       
 }
 
+let bombe = randomNumbers()
+console.log(bombe);
+
 //UTENTE CLICCA SU CELLA
 //se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba
 
-for (let i = 0; i < randomNumbers.length; i++) {
-    const bomba_calpestata = array[i];
+for (let i = 0; i < bombe.length; i++) {
     
 }
 
